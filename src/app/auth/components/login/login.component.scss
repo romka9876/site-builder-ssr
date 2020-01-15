@@ -1,0 +1,105 @@
+@import "../../../../styles/helpers/index";
+
+.form {
+  &__title {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #2d3137;
+  }
+
+  &__group {
+    display: block;
+  }
+
+  &__control {
+    @include flex();
+
+    flex-direction: column;
+
+    &_row-centering {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &_row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .form__label-text {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__label {
+    @include flex();
+
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    &-text {
+      font-family: "Open Sans", sans-serif;
+      font-size: 6px;
+      line-height: 9px;
+      font-weight: 600;
+      color: #545960;
+      margin-bottom: 4px;
+    }
+
+    &_row {
+      @include flex();
+
+      flex-direction: row;
+      align-items: center;
+
+      .form__label-text {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__input {
+    padding: 5px;
+    border-radius: 8px;
+    border: 0.5px solid #e4e8ec;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 7px;
+    line-height: 10px;
+    color: #545960;
+
+    &_checkbox {
+      width: 8px;
+      height: 8px;
+      border: 0.5px solid #e4e8ec;
+      border-radius: 50%;
+      background: transparent;
+      margin-right: 2px;
+    }
+  }
+
+  &__link {
+    font-family: "Open Sans", sans-serif;
+    font-size: 6px;
+    line-height: 9px;
+    font-weight: 400;
+    color: #9b9c9e;
+    text-decoration: none;
+
+    &_inline {
+      display: inline-block;
+      margin-left: 2px;
+      color: #4a90e2;
+    }
+  }
+
+  &__submit {
+    margin: 20px 0 10px;
+  }
+}

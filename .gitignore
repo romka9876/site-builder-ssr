@@ -1,0 +1,21 @@
+### Node
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+###Webstorm project files
+.DS_Store
+.idea/
+*.iml
+out
+gen
+
+###Angular project
+node_modules/
+static/
+dist/
+dist-server/

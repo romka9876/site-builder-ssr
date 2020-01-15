@@ -1,0 +1,19 @@
+@import "../helpers/index";
+
+.button {
+  @include flex-centering();
+
+  width: 100%;
+  padding: 5px;
+  border-radius: 8px;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  text-align: center;
+
+  &_blue {
+    background-image: linear-gradient(135deg, #00e3b7 0%, #00cf9f 100%);
+    color: #ffffff;
+  }
+}

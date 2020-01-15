@@ -1,0 +1,66 @@
+@import 'variables';
+
+@mixin overlay() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin flex() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex-centering($display: 'flex') {
+  @if $display == 'flex' {
+    display: flex;
+  }
+
+  @if $display == 'inline-flex' {
+    display: inline-flex;
+  }
+
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin custom-scroll() {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: $color-primary;
+  }
+}
+
+@mixin custom-scroll-invisible() {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin icon($size) {
+  @include flex-centering;
+  height: $size;
+  width: $size;
+}
+
+@mixin icon-hover() {
+  opacity: .5;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}

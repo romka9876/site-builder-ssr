@@ -1,0 +1,65 @@
+@import "../../styles/helpers/index";
+
+.auth-wrapper {
+  @include flex-centering();
+
+  flex-direction: column;
+  padding: 10px;
+  min-height: 100vh;
+
+  &_bg {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 153 116' width='153' height='116'%3E%3Cdefs%3E%3CclipPath clipPathUnits='userSpaceOnUse' id='cp1'%3E%3Cpath d='M-20 -169L940 -169L940 161L-20 161Z' /%3E%3C/clipPath%3E%3ClinearGradient id='grd1' gradientUnits='userSpaceOnUse' x1='-0.745' y1='-23.118' x2='174.042' y2='150.931'%3E%3Cstop offset='0' stop-color='%23928bf5' /%3E%3Cstop offset='1' stop-color='%2342b8e9' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cstyle%3E tspan %7B white-space:pre %7D .shp0 %7B fill: url(%23grd1) %7D %3C/style%3E%3Cg id='0.1 - Log In' clip-path='url(%23cp1)'%3E%3Cg id='Pattern' style='opacity: 0.149'%3E%3Cpath id='Shape' class='shp0' d='M31.94 3.94L54.71 19.87C58.3 22.38 59.18 27.33 56.66 30.92L40.72 53.68C38.2 57.27 33.25 58.14 29.66 55.63L6.89 39.69C3.29 37.18 2.42 32.23 4.94 28.64L20.88 5.88C23.4 2.29 28.35 1.42 31.94 3.94ZM145.83 90.5L149.72 102.48C150.34 104.36 149.3 106.39 147.41 107.01L135.43 110.9C133.54 111.51 131.51 110.48 130.89 108.59L127 96.61C126.38 94.72 127.42 92.69 129.31 92.08L141.29 88.19C143.18 87.57 145.21 88.61 145.83 90.5ZM99.51 22.71L106.82 25.37C107.97 25.79 108.57 27.06 108.15 28.22L105.49 35.52C105.07 36.68 103.79 37.27 102.64 36.85L95.32 34.19C94.17 33.77 93.57 32.5 93.99 31.34L96.66 24.04C97.08 22.88 98.35 22.29 99.51 22.71Z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 63 95' width='63' height='95'%3E%3Cdefs%3E%3CclipPath clipPathUnits='userSpaceOnUse' id='cp1'%3E%3Cpath d='M-93 2L867 2L867 332L-93 332Z' /%3E%3C/clipPath%3E%3ClinearGradient id='grd1' gradientUnits='userSpaceOnUse' x1='-8.141' y1='85.637' x2='72.303' y2='5.982'%3E%3Cstop offset='0' stop-color='%23b6aeff' /%3E%3Cstop offset='1' stop-color='%23f19cff' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cstyle%3E tspan %7B white-space:pre %7D .shp0 %7B fill: url(%23grd1) %7D %3C/style%3E%3Cg id='0.1 - Log In' clip-path='url(%23cp1)'%3E%3Cg id='Pattern' style='opacity: 0.149'%3E%3Cpath id='Shape' class='shp0' d='M55.47 22.58L59.36 10.6C59.98 8.71 58.94 6.68 57.05 6.07L45.07 2.18C43.18 1.56 41.15 2.6 40.53 4.49L36.64 16.46C36.02 18.35 37.06 20.38 38.95 21L50.93 24.89C52.82 25.5 54.86 24.47 55.47 22.58ZM9.15 90.37L16.46 87.71C17.61 87.29 18.21 86.01 17.79 84.86L15.13 77.55C14.71 76.4 13.43 75.8 12.28 76.22L4.96 78.88C3.81 79.3 3.21 80.58 3.63 81.73L6.3 89.04C6.72 90.19 7.99 90.79 9.15 90.37Z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 153 116' width='153' height='116'%3E%3Cdefs%3E%3CclipPath clipPathUnits='userSpaceOnUse' id='cp1'%3E%3Cpath d='M-819 -169L141 -169L141 161L-819 161Z' /%3E%3C/clipPath%3E%3ClinearGradient id='grd1' gradientUnits='userSpaceOnUse' x1='152.975' y1='133.563' x2='-0.575' y2='-19.987'%3E%3Cstop offset='0' stop-color='%23ff8c91' /%3E%3Cstop offset='1' stop-color='%23ff9278' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cstyle%3E tspan %7B white-space:pre %7D .shp0 %7B fill: url(%23grd1) %7D %3C/style%3E%3Cg id='0.1 - Log In' clip-path='url(%23cp1)'%3E%3Cg id='Pattern' style='opacity: 0.149'%3E%3Cpath id='Shape' class='shp0' d='M120.96 109.64L98.19 93.71C94.6 91.19 93.72 86.25 96.24 82.66L112.18 59.9C114.7 56.31 119.65 55.44 123.24 57.95L146.01 73.88C149.61 76.4 150.48 81.35 147.96 84.94L132.02 107.69C129.5 111.28 124.55 112.16 120.96 109.64ZM7.07 23.08L3.18 11.1C2.56 9.21 3.6 7.18 5.49 6.57L17.47 2.68C19.36 2.06 21.4 3.1 22.01 4.99L25.9 16.96C26.52 18.85 25.48 20.88 23.59 21.5L11.61 25.39C9.72 26 7.69 24.97 7.07 23.08ZM53.39 90.87L46.08 88.21C44.93 87.79 44.33 86.51 44.75 85.36L47.41 78.05C47.83 76.9 49.11 76.3 50.26 76.72L57.58 79.38C58.73 79.8 59.33 81.08 58.91 82.23L56.24 89.54C55.82 90.69 54.55 91.29 53.39 90.87Z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(82deg, #f5f9fd 0%, #f9fafb 100%);
+    background-repeat: no-repeat;
+    background-position: left 25px bottom 40px, left 90px top -5px, right -20px bottom 40px, left top;
+  }
+}
+
+.directory {
+  margin-bottom: 25px;
+
+  &__wrapper {
+    @include flex();
+    max-width: 555px;
+  }
+
+  &__list {
+    @include flex-centering();
+  }
+
+  &__list-item {
+    display: flex;
+    position: relative;
+    padding: 0 5px;
+    font-family: "Open Sans",sans-serif;
+    font-size: 8px;
+    line-height: 10px;
+    font-weight: 600;
+    color: #545960;
+
+    &:not(:first-child):before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 8px;
+      background: #545960;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &_logo {
+      @include flex-centering();
+
+      color: #4a90e2;
+    }
+  }
+}
+
+.form {
+  padding: 20px 10px 5px;
+  width: 205px;
+  height: 223px;
+  border-radius: 8px;
+  filter: drop-shadow(0px 12px 8px rgba(44,100,131,.08));
+  background-color: #ffffff;
+}
