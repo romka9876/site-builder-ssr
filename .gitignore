@@ -15,7 +15,13 @@ out
 gen
 
 ###Angular project
-node_modules/
-static/
-dist/
-dist-server/
+#global folders
+/node_modules/
+/static/
+/dist/
+/dist-server/
+
+#ignore js files
+*.js
+!*.config.js
+!*.conf.js
