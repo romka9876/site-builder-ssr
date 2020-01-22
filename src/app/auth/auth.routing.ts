@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { MetaGuard } from '@ngx-meta/core';
+import { CanAuthenticationGuard } from '@shared/guards/can-auth.guard';
 
 const authRoutes: Routes = [
   {
@@ -15,10 +16,12 @@ const authRoutes: Routes = [
     children: [
       {
         path: 'login',
+        canActivate: [CanAuthenticationGuard],
         loadChildren: './components/login/login.module#LoginModule'
       },
       {
         path: 'registration',
+        canActivate: [CanAuthenticationGuard],
         loadChildren: './components/registration/registration.module#RegistrationModule',
       },
     ],

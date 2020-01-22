@@ -1,5 +1,6 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
+// import 'localstorage-polyfill';
 
 // for debug
 require('source-map-support').install();
@@ -30,6 +31,13 @@ Object.defineProperty(win.document.body.style, 'transform', {
 });
 // mock documnet
 global['document'] = win.document;
+// global['location'] = win.location;
+// global['branch'] = null;
+// global['object'] = win.object;
+// global['HTMLElement'] = win.HTMLElement;
+// global['navigator'] = win.navigator;
+// global['localStorage'] = localStorage;
+// global['sessionStorage'] = localStorage;
 // othres mock
 global['CSS'] = null;
 // global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
