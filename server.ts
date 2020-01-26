@@ -1,6 +1,6 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-// import 'localstorage-polyfill';
+import 'localstorage-polyfill';
 
 // for debug
 require('source-map-support').install();
@@ -31,13 +31,13 @@ Object.defineProperty(win.document.body.style, 'transform', {
 });
 // mock documnet
 global['document'] = win.document;
-// global['location'] = win.location;
-// global['branch'] = null;
-// global['object'] = win.object;
-// global['HTMLElement'] = win.HTMLElement;
-// global['navigator'] = win.navigator;
-// global['localStorage'] = localStorage;
-// global['sessionStorage'] = localStorage;
+global['location'] = win.location;
+global['branch'] = null;
+global['object'] = win.object;
+global['HTMLElement'] = win.HTMLElement;
+global['navigator'] = win.navigator;
+global['localStorage'] = localStorage;
+global['sessionStorage'] = localStorage;
 // othres mock
 global['CSS'] = null;
 // global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
@@ -135,7 +135,7 @@ app.get('*.*', express.static(path.join(__dirname, '.', 'dist')));
 // static
 app.get(ROUTES, express.static(path.join(__dirname, '.', 'static')));
 
-// cache
+/*// cache
 const NodeCache = require('node-cache');
 // stdTTL: (default: 0) the standard ttl as number in seconds for every generated cache element. 0 = unlimited
 // checkperiod: (default: 600) The period in seconds, as a number, used for the automatic delete check interval. 0 = no periodic check.
@@ -159,10 +159,10 @@ const cache = () => {
       next();
     }
   };
-};
+};*/
 
 // dynamic render
-app.get('*', cache(), (req, res) => {
+app.get('*', (req, res) => {
   // mock navigator from req.
   global['navigator'] = req['headers']['user-agent'];
   const http =

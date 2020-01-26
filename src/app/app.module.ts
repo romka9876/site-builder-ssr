@@ -29,9 +29,6 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
         url: 'http://localhost:7070/auth',
         realm: 'site3',
         clientId: 'main_id'
-      },
-      initOptions: {
-        onLoad: 'login-required'
       }
     });
 }

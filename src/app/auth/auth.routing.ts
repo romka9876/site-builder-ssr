@@ -16,7 +16,6 @@ const authRoutes: Routes = [
     children: [
       {
         path: 'login',
-        canActivate: [CanAuthenticationGuard],
         loadChildren: './components/login/login.module#LoginModule'
       },
       {

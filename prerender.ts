@@ -1,5 +1,5 @@
 import { environment } from './src/environments/environment';
-// import 'localstorage-polyfill';
+import 'localstorage-polyfill';
 
 // for debug
 require('source-map-support').install();
@@ -22,13 +22,13 @@ Object.defineProperty(win.document.body.style, 'transform', {
 });
 global['document'] = win.document;
 global['CSS'] = null;
-// global['location'] = win.location;
-// global['branch'] = null;
-// global['object'] = win.object;
-// global['HTMLElement'] = win.HTMLElement;
-// global['navigator'] = win.navigator;
-// global['localStorage'] = localStorage;
-// global['sessionStorage'] = localStorage;
+global['location'] = win.location;
+global['branch'] = null;
+global['object'] = win.object;
+global['HTMLElement'] = win.HTMLElement;
+global['navigator'] = win.navigator;
+global['localStorage'] = localStorage;
+global['sessionStorage'] = localStorage;
 // global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
 global['Prism'] = null;
 

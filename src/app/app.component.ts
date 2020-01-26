@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { MetaService } from '@ngx-meta/core';
 
 @Component({
