@@ -24,7 +24,7 @@
             ],
             "styles": [
             ],
-            "scripts": []
+            "scripts": ["./node_modules/keycloak-js/dist/keycloak.js"]
           },
           "configurations": {
             "dev": {

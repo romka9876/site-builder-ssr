@@ -15,10 +15,10 @@ export class SecuredHttpInterceptor implements HttpInterceptor {
    */
   intercept( request: HttpRequest<any>, next: HttpHandler ): Observable<HttpEvent<any>> {
     // const started = Date.now();
-    if ( this.keycloakService.auth.authz != null && this.keycloakService.auth.loggedIn && this.keycloakService.auth.authz.authenticated ) {
-      this.keycloakService.getToken();
+    if ( KeycloakService.auth.authz != null && KeycloakService.auth.loggedIn && KeycloakService.auth.authz.authenticated ) {
+      KeycloakService.getToken();
 
-      const kcToken = this.keycloakService.auth.authz.token;
+      const kcToken = KeycloakService.auth.authz.token;
 
       request = request.clone( {
         setHeaders: {

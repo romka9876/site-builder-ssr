@@ -42,16 +42,11 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
   providers: [
     CookieService,
     UniversalStorage,
-    AuthService,
+    KeycloakService,
     // Guards
+    AuthService,
     UnAuthGuard,
     AuthGuard,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializer,
-      multi: true,
-      deps: [KeycloakService]
-    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: SecuredHttpInterceptor,

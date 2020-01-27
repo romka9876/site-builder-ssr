@@ -6,32 +6,31 @@ import * as Keycloak from 'keycloak-js';
 
 @Injectable({ providedIn: 'root' })
 export class KeycloakService {
-  public auth: any = {};
-
-  private redirectUrl: string;
+  static auth: any = {};
+  static redirectUrl: string;
 
   /**
    * Initialized keycloak client
    */
-  public init(): Promise<any> {
+  static init(): Promise<any> {
     const keycloakAuth: any = Keycloak({
       url: 'http://localhost:7070/auth',
       realm: 'site3',
       clientId: 'main_id'
     });
 
-    this.auth.loggedIn = false;
+    KeycloakService.auth.loggedIn = false;
 
     debugger;
 
     return new Promise((resolve, reject) => {
       keycloakAuth
-        .init( )
+        .init( { onLoad: 'check-sso' })
         .success(() => {
-          this.auth.loggedIn = true;
-          this.auth.authz = keycloakAuth;
-          this.auth.registerUrl = this.auth.authz.createRegisterUrl();
-          this.auth.logoutUrl =
+          KeycloakService.auth.loggedIn = true;
+          KeycloakService.auth.authz = keycloakAuth;
+          KeycloakService.auth.registerUrl = this.auth.authz.createRegisterUrl();
+          KeycloakService.auth.logoutUrl =
             keycloakAuth.authServerUrl +
             '/realms/' +
             environment.keycloakRealm +
@@ -53,11 +52,11 @@ export class KeycloakService {
    *
    * @param groupName group name defined in keycloak
    */
-  public hasGroup(groupName: string): boolean {
+  static hasGroup(groupName: string): boolean {
     return (
-      this.auth.authz != null &&
-      this.auth.authz.authenticated &&
-      this.auth.authz.idTokenParsed.groups.indexOf('/' + groupName) !== -1
+      KeycloakService.auth.authz != null &&
+      KeycloakService.auth.authz.authenticated &&
+      KeycloakService.auth.authz.idTokenParsed.groups.indexOf('/' + groupName) !== -1
     );
   }
 
@@ -66,13 +65,13 @@ export class KeycloakService {
    *
    * @param groupNames a list of group names defined in keycloak
    */
-  public hasGroups(groupNames: string[]): boolean {
+  static hasGroups(groupNames: string[]): boolean {
     if (!groupNames) {
       return false;
     }
     return groupNames.some(e => {
       if (typeof e === 'string') {
-        return this.hasGroup(e);
+        return KeycloakService.hasGroup(e);
       }
     });
   }
@@ -83,43 +82,43 @@ export class KeycloakService {
    * @param roleName The name of the role
    * @param resource The keycloak client
    */
-  public hasRole(roleName: string, resource?: string): boolean {
+  static hasRole(roleName: string, resource?: string): boolean {
     return (
-      this.auth.authz.hasRealmRole(roleName) ||
-      this.auth.authz.hasResourceRole(roleName) ||
-      this.auth.authz.hasResourceRole(roleName, resource)
+      KeycloakService.auth.authz.hasRealmRole(roleName) ||
+      KeycloakService.auth.authz.hasResourceRole(roleName) ||
+      KeycloakService.auth.authz.hasResourceRole(roleName, resource)
     );
   }
 
   /**
    * Logout the current user
    */
-  public logout() {
+  static logout() {
     console.log('*** LOGOUT');
-    this.auth.authz.logout({
-      redirectUri: this.auth.logoutUrl
+    KeycloakService.auth.authz.logout({
+      redirectUri: KeycloakService.auth.logoutUrl
     });
-    this.auth.loggedIn = false;
-    this.auth.authz = null;
+    KeycloakService.auth.loggedIn = false;
+    KeycloakService.auth.authz = null;
   }
 
   /**
    * Redirects to keycloak login page
    */
-  public login() {
-    this.auth.authz.login();
+  static login() {
+    KeycloakService.auth.authz.login();
   }
 
   /**
    * Returns the token of the currently logged user
    */
-  public getToken(): Promise<string> {
+  static getToken(): Promise<string> {
     return new Promise<string>((resolve, reject) => {
-      if (this.auth.authz.token) {
-        this.auth.authz
+      if (KeycloakService.auth.authz.token) {
+        KeycloakService.auth.authz
           .updateToken(5)
           .success(() => {
-            resolve(<string>this.auth.authz.token);
+            resolve(<string>KeycloakService.auth.authz.token);
           })
           .error(() => {
             reject('Failed to refresh token');
@@ -131,14 +130,14 @@ export class KeycloakService {
   /**
    * Returns true if the current user is logged in
    */
-  public isLogged(): boolean {
-    return this.auth.authz != null && this.auth.authz.authenticated;
+  static isLogged(): boolean {
+    return KeycloakService.auth.authz != null && KeycloakService.auth.authz.authenticated;
   }
 
   /**
    * Returns keycloak registration url
    */
-  public createRegisterUrl() {
-    return this.auth.registerUrl;
+  static createRegisterUrl() {
+    return KeycloakService.auth.registerUrl;
   }
 }

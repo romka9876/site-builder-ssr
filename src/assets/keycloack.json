@@ -1,0 +1,12 @@
+{
+  "realm": "site3",
+  "auth-server-url": "http://localhost:7070/auth/",
+  "ssl-required": "external",
+  "resource": "main_id",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "00d6efc3-2972-4c27-a3ba-0fb5ea48185e"
+  },
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}

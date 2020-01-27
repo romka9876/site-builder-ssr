@@ -20,11 +20,11 @@ export class AuthGuard implements CanActivate, CanLoad {
    * @param url
    */
   checkLogin( url: string ): boolean {
-    if ( this.keycloakService.auth.loggedIn && this.keycloakService.auth.authz.authenticated ) {
+    if ( KeycloakService.auth.loggedIn && KeycloakService.auth.authz.authenticated ) {
       return true;
 
     } else {
-      this.keycloakService.init();
+      KeycloakService.init();
       // this.keycloakService.login();
       return false;
     }
@@ -37,16 +37,16 @@ export class AuthGuard implements CanActivate, CanLoad {
    */
   canLoad( route: Route ): boolean {
     debugger;
-    if ( !( this.keycloakService.auth.loggedIn && this.keycloakService.auth.authz.authenticated ) ) {
+    if ( !( KeycloakService.auth.loggedIn && KeycloakService.auth.authz.authenticated ) ) {
       debugger;
-      this.keycloakService.login();
+      KeycloakService.login();
       return true;
     }
 
     const data = route.data['Permission'] as PermissionGuard;
     console.log( data.Role );
     if ( data.Role ) {
-      const hasDefined = this.keycloakService.hasRole( data.Role );
+      const hasDefined = KeycloakService.hasRole( data.Role );
       if ( hasDefined ) {
         return true;
       }
@@ -65,7 +65,7 @@ export class AuthGuard implements CanActivate, CanLoad {
       }
 
       if ( Array.isArray( data.Only ) ) {
-        const hasDefined = this.keycloakService.hasGroups( data.Only );
+        const hasDefined = KeycloakService.hasGroups( data.Only );
         if ( hasDefined ) {
           return true;
         }
@@ -78,7 +78,7 @@ export class AuthGuard implements CanActivate, CanLoad {
       }
 
       if ( Array.isArray( data.Except ) ) {
-        const hasDefined = this.keycloakService.hasGroups( data.Except );
+        const hasDefined = KeycloakService.hasGroups( data.Except );
         if ( !hasDefined ) {
           return true;
         }
