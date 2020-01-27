@@ -1,10 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { MetaGuard } from '@ngx-meta/core';
+import { AuthGuard } from '@core/keycloak/guards/auth.guard';
 
 const authRoutes: Routes = [
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
+    path: '', redirectTo: 'login', pathMatch: 'full',
   },
   {
     path: '',
@@ -19,6 +20,7 @@ const authRoutes: Routes = [
       },
       {
         path: 'registration',
+        canLoad: [AuthGuard],
         loadChildren: './components/registration/registration.module#RegistrationModule',
       },
     ],

@@ -8,7 +8,7 @@ import { SharedFormsModule } from '@shared/shared-forms/shared-forms.module';
 
 @NgModule({
   exports: [LayoutsModule, SharedMetaModule, TransferHttpModule],
-  providers: [],
+  providers: []
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
